@@ -59,6 +59,76 @@ namespace HelloWorld
             bool isGoldCust = true;
             float price = (isGoldCust) ? 19.95f : 20.95f;
             Console.WriteLine(price);
+            Prog.taskOne();
+            Prog.taskTwo();
+            Prog.taskThree();
+            Prog.taskFour();
+        }
+
+        public static void taskOne()
+        {
+            Console.WriteLine("Enter a number between 1 and 10.\n");
+            int num = Convert.ToInt32(Console.ReadLine());
+            if (num<=10 && num>=1)
+            {
+                Console.WriteLine("Valid {0}", num);
+            } else {
+                Console.WriteLine("Invalid");
+            }
+        }
+
+        public static void taskTwo()
+        {
+            Console.WriteLine("Enter two numbers.\n");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            if (num1>num2)
+            {
+                Console.WriteLine(num1);
+            } else {
+                Console.WriteLine(num2);
+            }
+        }
+
+        public static void taskThree()
+        {
+            Console.WriteLine("Enter the width.\n");
+            int width = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the height.\n");
+            int height = Convert.ToInt32(Console.ReadLine());
+            if (width>height)
+            {
+                Console.WriteLine("Landscape\n");
+            } else {
+                Console.WriteLine("Portrait\n");
+            }
+        }
+
+        public static void taskFour()
+        {
+            Console.WriteLine("Enter the speed limit.\n");
+            int limit = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the speed.\n");
+            int speed = Convert.ToInt32(Console.ReadLine());
+            if (speed<limit)
+            {
+                Console.WriteLine("OK\n");
+            } else {
+                for (int i = 0; i < 12; i++)
+                {
+                    if(speed<=0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("1 ");
+                    speed -= 5;
+                }
+
+                if (speed>0)
+                {
+                    Console.WriteLine("\nLicense Suspended.");
+                }
+            }
         }
     }
 }
