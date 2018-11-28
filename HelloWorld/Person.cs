@@ -37,7 +37,7 @@ namespace HelloWorld
             int[] numbers = new int[3] { 1, 2, 3 };
             string list = string.Join(",", numbers);
             var firstName = "Geeth";
-            String str = "from .net framework";
+            //String str = "from .net framework";
             var lastName = "Wije";
             var fullname = firstName + " " + lastName;
             var myFullName = string.Format("My name is {0} {1}", firstName, lastName);
@@ -89,6 +89,10 @@ namespace HelloWorld
             numList.AddRange(new int[4] { 2, 3, 4, 5 });
             Console.WriteLine(numList.Count);
             numList.Remove(3);
+            //Prog.taskTen();
+            //Prog.taskEleven();
+            //Prog.taskTwelve();
+            Prog.taskThirteen();
         }
 
         public static void taskOne()
@@ -175,7 +179,6 @@ namespace HelloWorld
         public static void taskSix()
         {
             var sum = 0;
-            Console.WriteLine("YO");
             while(true)
             {
                 Console.WriteLine("Enter a number.");
@@ -227,6 +230,90 @@ namespace HelloWorld
                     Console.WriteLine("You lost.");
                 }
             }
+        }
+
+        public static void taskTen()
+        {
+            var list = new List<string>();
+            while(true)
+            {
+                Console.WriteLine("Enter name.");
+                string name = Console.ReadLine();
+                if(name=="")
+                {
+                    break;
+                }
+                list.Add(name);
+            }
+
+            if (list.Count == 1)
+            {
+                Console.WriteLine("{0} likes your post.", list[0]);
+
+            } else if (list.Count == 2)
+            {
+                Console.WriteLine("{0} and {1} like your post.", list[0], list[1]);
+
+            } else {
+                Console.WriteLine("{0}, {1} and {2} others like your post.", list[0], list[1], (list.Count-2));
+
+            }
+        }
+
+        public static void taskEleven()
+        {
+            Console.WriteLine("Enter your name.");
+            string name = Console.ReadLine();
+            char[] charArr = name.ToCharArray();
+            Array.Reverse(charArr);
+            Console.WriteLine(string.Join("", charArr));
+            Console.WriteLine();
+        }
+
+        public static void taskTwelve()
+        {
+            var list = new List<int>();
+            for (var i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Enter a number. " + i);
+                int newNum = Convert.ToInt32(Console.ReadLine());
+                if(!list.Contains(newNum))
+                {
+                    list.Add(newNum);
+                } else {
+                    Console.WriteLine("Number is already in list. Try again.");
+                    newNum = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+        }
+
+        public static void taskThirteen()
+        {
+            var list = new List<int>();
+            while(true)
+            {
+                Console.WriteLine("Enter a number.");
+                var input = Console.ReadLine();
+                int value;
+                if (int.TryParse(input, out value))
+                {
+                    list.Add(value);
+                }
+                else if (input == "Quit")
+                {
+                    break;
+                }
+            }
+            var size = list.Count;
+            for (var i = 0; i < size; i++)
+            {
+                var num = list[0];
+                Console.WriteLine("Elem: {0}", num);
+                list.RemoveAll(a => a == num);
+                if (list.Count == 0)
+                    break;
+            }
+
         }
     }
 }
