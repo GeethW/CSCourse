@@ -19,6 +19,12 @@ namespace HelloWorld
         }
     }
 
+    public enum ShippingMethod
+    {
+        RegularMail = 1,
+        RegisteredAirMail = 2,
+        Express = 3
+    }
     public class Prog 
     {
         public static void Main(String[] args)
@@ -37,8 +43,22 @@ namespace HelloWorld
             var names = new string[3] { "Kevin", "Jill", "Mary" };
             var formattedNames = string.Join(",", names);
             Console.WriteLine(formattedNames);
-
-
+            var method = ShippingMethod.Express;
+            Console.WriteLine((int)method);
+            Console.WriteLine(method.ToString());
+            var methodName = "Express";
+            var shippingMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
+            var a = 10;
+            var b = a;
+            b++;
+            Console.WriteLine(string.Format("a: {0} b: {1}", a, b));
+            var array1 = new int[3]{1,2,3};
+            var array2 = array1;
+            array2[0] = 4;
+            Console.WriteLine(string.Format("array1[0]: {0} array2[0]: {1}", array1[0], array2[0]));
+            bool isGoldCust = true;
+            float price = (isGoldCust) ? 19.95f : 20.95f;
+            Console.WriteLine(price);
         }
     }
 }
