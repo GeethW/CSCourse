@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HelloWorld
 {
@@ -82,6 +83,12 @@ namespace HelloWorld
             Array.Copy(arr, another, 3);
             Array.Clear(arr, 0, 2);
             Array.Sort(another);
+            Array.Reverse(another);
+            var numList = new List<int>() { 1, 2, 3, 4 };
+            numList.Add(4);
+            numList.AddRange(new int[4] { 2, 3, 4, 5 });
+            Console.WriteLine(numList.Count);
+            numList.Remove(3);
         }
 
         public static void taskOne()
