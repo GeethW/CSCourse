@@ -75,7 +75,13 @@ namespace HelloWorld
             //Prog.taskFive();
             //Prog.taskSix();
             //Prog.taskSeven();
-            Prog.taskEight();
+            //Prog.taskEight();
+            //Prog.taskNine();
+            var arr = new[] { 1, 4, 3, 4, 5, 6 };
+            int[] another = new int[3];
+            Array.Copy(arr, another, 3);
+            Array.Clear(arr, 0, 2);
+            Array.Sort(another);
         }
 
         public static void taskOne()
