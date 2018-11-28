@@ -59,10 +59,19 @@ namespace HelloWorld
             bool isGoldCust = true;
             float price = (isGoldCust) ? 19.95f : 20.95f;
             Console.WriteLine(price);
-            Prog.taskOne();
+            /*Prog.taskOne();
             Prog.taskTwo();
             Prog.taskThree();
-            Prog.taskFour();
+            Prog.taskFour();*/
+            var random = new Random();
+            const int pwLength = 10;
+            var buffer = new char[pwLength];
+            for (var i = 0; i < pwLength; i++)
+            {
+                buffer[i] = (char)('a' + random.Next(0, 26));
+            }
+            string password = new string(buffer);
+            Console.WriteLine(password);
         }
 
         public static void taskOne()
