@@ -72,6 +72,10 @@ namespace HelloWorld
             }
             string password = new string(buffer);
             Console.WriteLine(password);
+            //Prog.taskFive();
+            //Prog.taskSix();
+            //Prog.taskSeven();
+            Prog.taskEight();
         }
 
         public static void taskOne()
@@ -136,6 +140,78 @@ namespace HelloWorld
                 if (speed>0)
                 {
                     Console.WriteLine("\nLicense Suspended.");
+                }
+            }
+        }
+
+        public static void taskFive()
+        {
+            var count = 0;
+            var i = 1;
+            while(i<=100)
+            {
+                if(i%3==0)
+                {
+                    count++;
+                }
+                i++;
+            }
+            Console.WriteLine(count);
+        }
+
+        public static void taskSix()
+        {
+            var sum = 0;
+            Console.WriteLine("YO");
+            while(true)
+            {
+                Console.WriteLine("Enter a number.");
+                var input = Console.ReadLine();
+                int value;
+                if(int.TryParse(input, out value))
+                    sum += value;
+                else if (input=="ok")
+                {
+                    break;
+                }
+
+            }
+        }
+
+        public static void taskSeven()
+        {
+            Console.WriteLine("7: Enter a number.");
+            var number = Convert.ToInt32(Console.ReadLine());
+            int factorial = number;
+            while(number!=1)
+            {
+                number--;
+                factorial *= number;
+            }
+            Console.WriteLine(factorial);
+        }
+
+        public static void taskEight()
+        {
+            var random = new Random();
+            int no = Convert.ToInt32(random.Next(0, 10));
+            for (var i = 0; i < 4; i++)
+            {
+                if(i==0)
+                {
+                    Console.WriteLine("Guess the number. " + no);
+                } else 
+                {
+                    Console.WriteLine("Try again.");
+                }
+
+                var guess = Convert.ToInt32(Console.ReadLine());
+                if (guess == no)
+                {
+                    Console.WriteLine("You won.");
+                    break;
+                } else {
+                    Console.WriteLine("You lost.");
                 }
             }
         }
