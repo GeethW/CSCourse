@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.IO;
 
 namespace HelloWorld
 {
@@ -7,13 +8,54 @@ namespace HelloWorld
     {
         public static void Main(string[] args)
         {
+            var path = @"c:\somefile.jpg";
+            File.Copy(@"c:\temp\myfile.jpg", @"d:\temp\myfile.jpg", true);
+            File.Delete(path);
+            if(File.Exists(path))
+            {
+                //
+            }
+            var content = File.ReadAllText(path);
+            var fileInfo = new FileInfo(path);
+            fileInfo.CopyTo("...");
+            FileInfo.Delete();
+            if(FileInfo.Exists)
+            {
+                //
+            }
+
+            //Directory.CreateDirectory(@"c:\temp\folder1");
+            //var files = Directory.GetFiles(@"c:\projects\HellowWorld", ".sln", SearchOption.AllDirectories);
+            //foreach (var file in files)
+            //    Console.WriteLine(file);
+
+            var directories = Directory.GetDirectories(@"c:\projects\CSFundamentals", "*.*", SearchOption.AllDirectories);
+            foreach (var directory in directories)
+                Console.WriteLine(directory);
+
+            Directory.Exists("...");
+
+            var directoryInfo = new DirectoryInfo("...");
+            directoryInfo.GetFiles();
+            directoryInfo.GetDirectories();
+
+            var path = @"C:\Projects\HelloWorld/HelloWorld.sln";
+            var dotIndex = path.IndexOf('.');
+            var extension = path.Substring(dotIndex);
+
+            Console.WriteLine("Exension: " + Path.GetExtension(path));
+            Console.WriteLine("File Name: " + Path.GetFileName(path));
+            Console.WriteLine("File name without extension: " + Path.GetFileNameWithoutExtension(path));
+            Console.WriteLine("Directory name: " + Path.GetDirectoryName(path));
+
+
             var builder = new StringBuilder();
                builder
                 .Append('-', 10)
                 .AppendLine()
                 .Append("Header")
                 .AppendLine()
-                .Append('-', 10);
+                .Append('-', 10)
                 .Replace('-', '+')
                 .Remove(0, 10)
                 .Insert(0, new string('-', 10));
@@ -95,19 +137,19 @@ namespace HelloWorld
             {
                 for(int j = 0; j < words[i].Length; i++)
                 {
-                    var charac = words[i].remove(1);
-                    if (j==0 && (int)charac>=97)
+                    string charac = words[i].Remove(1);
+                    if (j==0 && Convert.ToInt32(charac)>=97)
                     {
-                        builder.Append((int)charac - 32); //uppercase first letter of word
+                        builder.Append((string)(Convert.ToInt32(charac) - 32)); //uppercase first letter of word
                     } else if (j == 0)
                     {
-                        builder.Append((int)charac);
-                    } else if ((int)charac<=90)
+                        builder.Append(charac);
+                    } else if (Convert.ToInt32(charac) <= 90)
                     {
-                        builder.Append((int)charac + 32); //make rest of charac lowercase
+                        builder.Append((string)(Convert.ToInt32(charac) + 32)); //make rest of charac lowercase
                     } else
                     {
-                        builder.Append((int)charac);
+                        builder.Append(charac);
                     }
                 }
             }
