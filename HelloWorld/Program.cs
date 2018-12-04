@@ -116,7 +116,20 @@ namespace HelloWorld
         {
             Console.WriteLine("Enter an english word.");
             var word = Console.ReadLine();
+            var count = 0;
 
+            for(int i =0; i<word.Length; i++)
+            {
+                var letter = word.Remove(1);
+                var ascii = (int)letter;
+                if(ascii==97 || ascii ==65 || ascii==69 || ascii==101 || ascii==73 || ascii==105 || ascii==79 || ascii==111 || ascii==85 || ascii==117)
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
         }
+
+
     }
 }
